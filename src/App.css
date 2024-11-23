@@ -1,0 +1,23 @@
+#root {
+  @apply mx-auto max-w-7xl;
+}
+
+body {
+  background-color: #0b1919;
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+/* Mengatur container untuk melakukan scroll snapping */
+.scroll-container {
+  overflow-y: scroll; /* Membuat container dapat digulir */
+  height: 100vh; /* Pastikan tinggi container sesuai dengan tinggi layar */
+  scroll-snap-type: y mandatory; /* Menentukan jenis scroll snapping pada sumbu Y */
+}
+
+/* Menambahkan snapping ke setiap section */
+.section {
+  min-height: 100vh;
+  scroll-snap-align: end; /* Membuat setiap section menempel di bagian atas viewport */
+ padding-bottom: 6rem;
+}
