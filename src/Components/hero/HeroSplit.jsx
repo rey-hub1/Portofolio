@@ -23,7 +23,7 @@ const About = ({
         visible: {
             x: 0,
             opacity: 1,
-            transition: { duration: 1, type: "spring", stiffness: 100, damping: 9 },
+            transition: { duration: 1, type: "spring", stiffness: 100, damping: 9, delay: 0.2 },
         },
     },
 }) => {
@@ -61,7 +61,7 @@ const About = ({
             </motion.div>
 
             {/* Konten kanan */}
-            <motion.div variants={rightAnimation}>
+            <motion.div variants={rightAnimation} >
                 {imageSrc && (
                     <motion.img
                         src={imageSrc}
@@ -70,6 +70,7 @@ const About = ({
                         initial={{ scale: 1, borderRadius: 20, filter: "blur(2px)" }}
                         whileHover={{ scale: 1.05, filter: "blur(0px)" }}
                         transition={{ duration: 1, ease: "easeOut" }}
+
                     />
                 )}
             </motion.div>

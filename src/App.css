@@ -2,9 +2,14 @@
   @apply mx-auto max-w-7xl;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #0b1919;
   min-height: 100vh;
+}
+.overflow-y-hidden {
   overflow-y: hidden;
 }
 
@@ -16,8 +21,9 @@ body {
 }
 
 /* Menambahkan snapping ke setiap section */
-.section {
+.Sroll-section {
   min-height: 100vh;
-  scroll-snap-align: end; /* Membuat setiap section menempel di bagian atas viewport */
- padding-bottom: 6rem;
+  scroll-snap-align: center; /* Membuat setiap section menempel di bagian atas viewport */
+  padding-bottom: 6rem;
+  scroll-snap-stop: always;
 }
