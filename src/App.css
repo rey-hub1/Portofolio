@@ -1,23 +1,33 @@
 #root {
   @apply mx-auto max-w-7xl;
+  overflow-x: hidden;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+
+
 body {
   background-color: #0b1919;
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100vw;
+  overflow-y: scroll; /* Memungkinkan scroll vertikal */
+  scrollbar-width: none; /* Menghilangkan scrollbar di Firefox */
+  
 }
-.overflow-y-hidden {
-  overflow-y: hidden;
+body::-webkit-scrollbar {
+  display: none; /* Menghilangkan scrollbar di Webkit (Chrome/Safari) */
 }
+
 
 /* Mengatur container untuk melakukan scroll snapping */
 .scroll-container {
-  overflow-y: scroll; /* Membuat container dapat digulir */
+  overflow-y: scroll; 
   height: 100vh; /* Pastikan tinggi container sesuai dengan tinggi layar */
   scroll-snap-type: y mandatory; /* Menentukan jenis scroll snapping pada sumbu Y */
+  scrollbar-width: none; /* Menghilangkan scrollbar di Firefox */
+}
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Menghilangkan scrollbar di Webkit (Chrome/Safari) */
 }
 
 /* Menambahkan snapping ke setiap section */
@@ -26,4 +36,31 @@ body {
   scroll-snap-align: center; /* Membuat setiap section menempel di bagian atas viewport */
   padding-bottom: 6rem;
   scroll-snap-stop: always;
+}
+
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #264948;
+  transform-origin: top;
+  transform: scaleY(0);
+  z-index: 100; 
+}
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #ff0000;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  z-index: 100; 
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Playfair Display', serif;
 }

@@ -3,11 +3,14 @@
 import daisyui from "daisyui";
 
 export default {
+  daisyui:{
+    themes:["forest"]
+  },
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      CrimsonText: ["Crimson Text", "serif"],
-      Playfair: ["Playfair Display", "serif"],
+      Playfair: ["DM Serif Text", "serif"],
+      Roboto: ["Roboto", "sans-serif"],
     },
     extend: {},
   },

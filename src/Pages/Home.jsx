@@ -2,17 +2,17 @@ import HeroSplit from "../Components/hero/HeroSplit";
 import Hero from "../Components/hero/Hero";
 import { useEffect } from "react";
 
-export default function Home() {
+function Home() {
 
-       useEffect(() => {
-            // Tambahkan class ke elemen body
-            document.body.classList.add("overflow-y-hidden");
+    useEffect(() => {
+        // Tambahkan class ke elemen body
+        document.body.classList.add("overflow-y-hidden");
 
-            // Bersihkan class saat komponen dilepas
-            return () => {
-                document.body.classList.remove("overflow-y-hidden");
-            };
-        }, []); 
+        // Bersihkan class saat komponen dilepas
+        return () => {
+            document.body.classList.remove("overflow-y-hidden");
+        };
+    }, []);
 
 
     return (
@@ -26,7 +26,7 @@ export default function Home() {
                 title="About Me"
                 description="Simple introduction of me"
                 linkText="Learn More"
-                linkTo="/about"
+                linkTo="/about#who"
                 imageSrc="/images/aboutme.jpg"
             />
 
@@ -35,11 +35,14 @@ export default function Home() {
                 title="My Projects"
                 description="Learn more about our values and goals."
                 linkText="Discover"
-                linkTo="/mission"
+                linkTo="/contact"
                 imageSrc="/images/mission.jpg"
 
             />
+           <div className="min-h-[100vh] Scroll-section">
 
+           </div>
         </div>
     )
 }
+export default Home
