@@ -233,7 +233,7 @@ function Experience() {
         </div>);
 }
 
-function    Skills() {
+function Skills() {
     return (<div className="mb-52">
         <h2 className="text-7xl font-semibold text-center mt-8 ">
             Skills<span className="text-[#b2ddd6]">?</span>
@@ -305,7 +305,7 @@ function    Skills() {
 function KataKata() {
     const text = "Life must be lived forward, but it only makes sense if lived backwards.".split(" ");
     return (
-        <div className="min-h-[90vh] flex justify-center items-center font-['Playfair']">
+        <div className="min-h-[90vh] flex justify-center items-center font-['Poppins']">
             <div className="App text-3xl text center">
                 {text.map((el, i) => (
                     <motion.span
