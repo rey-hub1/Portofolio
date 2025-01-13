@@ -12,7 +12,7 @@ export default function PageIndex() {
     return (
         <div className="text-Az-100">
             {/* SECTION 1 */}
-            <Section1 />
+            <Section1 className={"flex items-center content-center justify-center"} />
             {/* SECTION 2 */}
             <Section2 />
             {/* SECTION 3 */}
@@ -62,8 +62,8 @@ const Button = ({ text, variant, className }) => {
 };
 
 
-const Section1 = () => {
-    return <div className="flex items-center content-center justify-center ">
+const Section1 = ({className}) => {
+    return <div className= {className}>
         <div className="relative w-[90vw] h-auto">
             {/* Gambar */}
             <img src="/images/v2/HomeTop.png" className="w-full h-full object-cover rounded-lg" />
