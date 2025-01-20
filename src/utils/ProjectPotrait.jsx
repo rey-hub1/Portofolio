@@ -34,9 +34,9 @@ const useDimensions = () => {
     return dimension;
 };
 
-const Testing = () => {
+const ProjectPotrait = () => {
     const container = useRef(null);
-    const {height} = useDimensions()
+    const { height } = useDimensions()
     const { scrollYProgress } = useScroll({
         target: container,
         offset: ['start end', 'end start']
@@ -62,8 +62,8 @@ const Testing = () => {
             <div ref={container} className={styles.gallery}>
                 <Column images={[images[0], images[1], images[2]]} y={y1} />
                 <Column images={[images[3], images[4], images[5]]} y={y2} />
-                <Column images={[images[5], images[1], images[2]]} y={y3}/>
-                <Column images={[images[3], images[4], images[5]]} y={y4}/>
+                <Column images={[images[5], images[1], images[2]]} y={y3} />
+                <Column images={[images[3], images[4], images[5]]} y={y4} />
             </div>
             <div className={styles.spacer}></div>
         </main>
@@ -82,7 +82,7 @@ function Column({ images, y = 0 }) {
             })}
         </motion.div>);
 }
-export default Testing;
+export default ProjectPotrait;
 
 // export default function Testing() {
 //     return (

@@ -5,6 +5,13 @@ import daisyui from "daisyui";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "900px", // Ganti `lg` ke ukuran baru
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     fontFamily: {
       Poppins: ["Poppins", "sans-serif"],
       Roboto: ["Roboto", "sans-serif"],
@@ -24,7 +31,11 @@ export default {
       "Az-950": "#0b1919",
       "Az-abu": "#71717A",
     },
-    extend: {},
+    extend: {
+      // fontSize: {
+      //   "5xl": ["1rem", { lineHeight: "1" }], // Kustom ukuran 2xl
+      // },
+    },
   },
   plugins: [daisyui],
 };

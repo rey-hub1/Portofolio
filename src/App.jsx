@@ -8,30 +8,61 @@ import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
 import Testing from "./Pages/Testing";
 import Navbar from "./Components/Navbar/Navbar";
-import ScrollToTop from "./Components/ScrollToTop";
 import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react"
-// import Footer from "./Components/Footer";
-
+import Footer from "./Components/Footer";
+import { useEffect } from "react";
+import PulseLoader from "react-spinners/PulseLoader";
+import { useState } from "react";
 
 
 export default function App() {
   const location = useLocation();
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
+  }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0); // Reset scroll ke atas
+  }, [location]);
   return (
     <div className="font-['Roboto'] text-[#d9eeea]">
-      <ScrollToTop />
-      <Navbar />
-      <AnimatePresence >
-        <Routes location={location} key={location.pathname}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="Test" element={<Testing />} />
-          <Route path="contact" element={<PageWrapper> <Contact /></PageWrapper>} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </AnimatePresence>
-      {/* <Footer /> */}
+      {
+        loading ?
+          <div className="flex items-center justify-center h-screen">
+            <PulseLoader
+              color={"#5aa79f"}
+              loading={loading}
+              // cssOverride={override}
+              size={20}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
+          :
+          <motion.div
+            initial={{ opacity: 0 }} // Mulai dengan opacity 0
+            animate={{ opacity: 1 }} // Animasi opacity menjadi 1
+            transition={{ duration: 2, ease: "easeInOut" }} // Durasi animasi 1.5 detik
+
+          >
+            <Navbar />
+            <AnimatePresence >
+              <Routes location={location} key={location.pathname}>
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="projects" element={<Projects />} />
+                <Route path="Test" element={<Testing />} />
+                <Route path="contact" element={<PageWrapper> <Contact /></PageWrapper>} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AnimatePresence>
+            <Footer />
+          </motion.div>
+      }
     </div>
   )
 }

@@ -1,13 +1,27 @@
+html {
+    @apply text-[14px] md:text-[15px] lg:text-[17px];
+    /* @apply text-[16px] ; */
+  }
+
 #root {
-  @apply mx-auto max-w-7xl;
+  /* @apply mx-auto max-w-7xl; */
   overflow-x: hidden;
 }
 
+*{
+  box-sizing: border-box;
+}
+div{
+    outline: 1px solid red; 
+}
+
 body {
+  margin:0;
+  padding: 0;
   background-color: #0b1919;
   min-height: 100vh;
   overflow-x: hidden;
-  max-width: 100vw;
+  /* max-width: 100vw; */
   overflow-y: scroll; /* Memungkinkan scroll vertikal */
   scrollbar-width: none; /* Menghilangkan scrollbar di Firefox */
 }

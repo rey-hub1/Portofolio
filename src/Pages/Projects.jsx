@@ -11,6 +11,8 @@ import {
 import { useEffect, useRef } from "react";
 import { BsBraces } from "react-icons/bs";
 import { FaGithub, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import ProjectPotrait from "../utils/ProjectPotrait";
+
 
 const SmoothScrollHero = () => {
     useEffect(() => {
@@ -36,6 +38,7 @@ const SmoothScrollHero = () => {
                 >
                     {/* <Nav /> */}
                     <Hero />
+                    <ProjectPotrait />
                     <Schedule />
                 </ReactLenis>
             </div>

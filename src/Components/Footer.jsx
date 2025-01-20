@@ -1,7 +1,7 @@
 // import React from "react";
 
 export default function Footer() {
-  return <footer className="relative bg-[#081517] text-gray-300 py-10">
+  return <footer className="relative bg-[#081517] text-gray-300 pb-10 pt-[1px]">
     {
       /* Contact Section */
     }

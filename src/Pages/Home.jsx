@@ -2,22 +2,41 @@
 // import Footer from '@components/Footer';
 
 
-/* eslint-disable react/prop-types */
 
 import { FiPenTool } from "react-icons/fi";
 import { IoCodeSlash } from "react-icons/io5";
+import TextAnimateHuruf from "../utils/TextAnimateHuruf";
+import TextAnimateKata from "../utils/TextAnimateKata";
+import Lengket from "../utils/Lengket";
+import { useEffect, useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
+// import Lenis from "lenis";
+import Lenis from '@studio-freight/lenis'
+
 
 
 export default function PageIndex() {
+    useEffect(() => {
+        const lenis = new Lenis();
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        return () => {
+            lenis.destroy(); // Hancurkan instance Lenis saat unmount
+        };
+    }, []);
     return (
-        <div className="text-Az-100">
+        <div className="text-Az-100 relative  min-w-[100vw]">
             {/* SECTION 1 */}
-            <Section1 className={"flex items-center content-center justify-center"} />
+            <Section1 />
             {/* SECTION 2 */}
             <Section2 />
             {/* SECTION 3 */}
             <Section3 />
-
             {/* <Footer /> */}
         </div>
     )
@@ -44,17 +63,24 @@ const ProjectCard = () => {
 
 
 
-const Button = ({ text, variant, className }) => {
+const Button = ({ text, variant, className, cv = null }) => {
     const baseClasses =
         "px-6 py-2 rounded-lg shadow-md transition font-semibold";
 
     const solidClasses = "bg-Az-700 text-Az-100 hover:bg-[#345A54]";
     const outlineClasses =
         "border border-Az-100 text-Az-100 bg-transparent hover:bg-[#2C4E48] hover:text-white";
+    const downloadCV = () => {
+        const link = document.createElement('a');
+        link.href = '/file/cv_contoh.pdf';  // Ganti dengan path file CV
+        link.download = 'cv_contoh.pdf'; // Nama file yang akan diunduh
+        link.click();  // Memulai download
+    }
 
     return (
         <button
             className={`${baseClasses} ${variant === "outline" ? outlineClasses : solidClasses} ${className}`}
+            onClick={cv === "true" ? downloadCV : null}
         >
             {text}
         </button>
@@ -62,65 +88,135 @@ const Button = ({ text, variant, className }) => {
 };
 
 
-const Section1 = ({className}) => {
-    return <div className= {className}>
-        <div className="relative w-[90vw] h-auto">
-            {/* Gambar */}
-            <img src="/images/v2/HomeTop.png" className="w-full h-full object-cover rounded-lg" />
-
-            {/* Button di atas gambar */}
-            <button className="absolute text-2xl -bottom-5 -left-2 bg-[#2C4E48] text-white px-7 py-3 rounded-lg shadow-md font-semibold">
-                Reyno Nawfal Ghaisan
-            </button>
-        </div>
-        {/* <img src="/images/v2/HomeTop.png" /> */}
-        <div className="flex flex-col gap-2 mr-[8vw] ">
-            <h2 className="text-5xl tracking-wider">Hello!</h2>
-            <h2 className="text-4xl tracking-wider">I’m Reyno Nawfal Ghaisan</h2>
-            <p>A Software Engineering student passionate about tech, AI, and business. I love building websites, exploring AI, and creating random YouTube content. Always learning, always innovating.</p>
-            <div className="flex gap-4 w-full">
-                <Button text="Contact Me" className="w-2/6" />
-                <Button text="Dowload CV" variant="outline" className="w-2/5" />
+const Section1 = () => {
+    return (
+        <div className="flex  items-center content-center justify-center min-w-[100vw] pt-[15vh] pb-1 px-[4vw] md:px-0 ">
+            <div className="relative w-[100vw] md:w-[140vw] h-auto hidden md:block">
+                {/* Gambar */}
+                <img src="/images/v2/HomeTop.png" className="inset-0 w-full h-full object-cover rounded-lg" />
             </div>
-        </div>
-    </div>;
+            {/* <img src="/images/v2/HomeTop.png" /> */}
+            <div className="flex flex-col gap-2 mr-[8vw] mb-16 md:mb-1">
+                <h2 className="text-5xl tracking-wider">Hello!</h2>
+                <h2 className="text-4xl tracking-wider ">I’m Reyno Nawfal Ghaisan</h2>
+                <p>A Software Engineering student passionate about tech, AI, and business. I love building websites, exploring AI, and creating random YouTube content. Always learning, always innovating.</p>
+                <div className="flex gap-4 w-full">
+                    <Button text="Contact Me" className="w-2/6" />
+                    <Button text="Dowloada CV" variant="outline" className="w-2/5" cv="true"
+                    />
+                </div>
+            </div>
+        </div>);
 }
 
 function Section2() {
-    return (<div className="flex min-h-screen bg-Az-920 items-center justify-between gap-[5vw] px-[8vw] pt-20">
-        {
-            /* KIRI */
-        }
-        <div className="flex flex-col gap-6">
-            <Card icon={<FiPenTool size={40} />} title="Design" description="I craft intuitive and visually appealing designs that focus on user experience." />
-            <Card icon={<IoCodeSlash size={40} />} title="Website Developer" description="I build responsive and user-friendly websites, combining clean code with great design to ." />
+    // Ref dan Scroll untuk Bagian Pertama
+    const ref1 = useRef(null);
+    const { scrollYProgress: scrollYProgress1 } = useScroll({
+        target: ref1,
+        offset: ["0 1", "end start"],
+    });
 
-        </div>
 
-        {
-            /* KANAN - Buat Vertical Center */
+    const bgY1 = useTransform(scrollYProgress1, [0, 1], ["0", "-40%"]);
+
+    // Inview
+    const fadeInAnim = {
+        initial: {
+            opacity: 0,
+            y: 10
+        },
+        animate: {
+            opacity: 1,
+            y: 0
         }
-        <div className="text-white flex flex-col justify-center h-full">
-            <p className="text-Az-300 text-sm mb-1">-My Skills</p>
-            <h2 className="text-4xl font-bold mb-4">
+    }
+    const fadeInLeftAnim = {
+        initial: {
+            opacity: 0,
+            x: -50
+        },
+        animate: {
+            opacity: 1,
+            x: 0
+        }
+    }
+    return (
+        <motion.div
+            ref={ref1}
+            key="section2"
+            style={{ y: bgY1 }}
+            className="relative flex flex-col lg:flex-row min-h-screen bg-Az-920 items-center justify-between gap-[5vw] px-[8vw] pt-10 -mb-40"
+        >
+            {/* Button di atas gambar */}
+            <button className="hidden md:block absolute z-10 text-2xl -top-5 -left-2 bg-[#2C4E48] text-white px-7 py-3 rounded-lg shadow-md font-semibold">
+                Reyno Nawfal Ghaisan
+            </button>
+            {
+                /* KIRI / atas */
+            }
+            <div className="flex flex-row lg:flex-col gap-6">
+                <motion.div
+                    variants={fadeInLeftAnim}
+                    initial="initial"
+                    whileInView="animate"
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ amount: 0.7, once: false }}
+                >
+                    <Card icon={<FiPenTool size={40} />} title="Design" description="I craft intuitive and visually appealing designs that focus on user experience." />
+                </motion.div>
+                <motion.div
+                    variants={fadeInLeftAnim}
+                    initial="initial"
+                    whileInView="animate"
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ amount: 0.3 }}
+                >
+
+                    <Card icon={<IoCodeSlash size={40} />} title="Website Developer" description="I build responsive and user-friendly websites, combining clean code with great design to ." />
+                </motion.div>
+
+            </div>
+
+            {
+                /* KANAN / Bawah */
+            }
+            <div className="text-white flex flex-col justify-center h-full mb-[8vh]">
+                <motion.p
+                    className="text-Az-300 text-sm mb-1"
+                    variants={fadeInAnim}
+                    initial="initial"
+                    whileInView="animate"
+                    transition={{ duration: 1.2, delay: 0.4 }}
+                >-My Skills</motion.p>
+                {/* <h2 className="text-4xl font-bold mb-1">
                 WHY SHOULD <span className="text-Az-200">ME?</span>
-            </h2>
-            <p className="text-gray-400 text-sm mb-6">
+            </h2> */}
+                <TextAnimateHuruf className="text-4xl font-bold mb-1" >WHY SHOULD </TextAnimateHuruf>
+                <TextAnimateKata className="leading-3 mb-3 " >I&apos;m not just a developer—I&apos;m a creative problem solver who loves
+                    exploring AI, web development, and business. I combine technical skills
+                    with a strategic mindset, always looking for ways to create impactful
+                    and innovative solutions. Beyond coding, I enjoy making engaging content
+                    and continuously learning to stay ahead in the ever-evolving tech world.
+                    Let&apos;s build something great together!</TextAnimateKata>
+
+                {/* <p className="text-gray-400 text-sm mb-6">
                 I&apos;m not just a developer—I&apos;m a creative problem solver who loves
                 exploring AI, web development, and business. I combine technical skills
                 with a strategic mindset, always looking for ways to create impactful
                 and innovative solutions. Beyond coding, I enjoy making engaging content
                 and continuously learning to stay ahead in the ever-evolving tech world.
                 Let&apos;s build something great together!
-            </p>
-            <Button text="Learn More About Me" variant="" className="w-2/6" />
-
-        </div>
-    </div>);
+            </p> */}
+                <Lengket className="mt-[1vw] w-fit">
+                    <Button text="Learn More About Me" variant="" className="" />
+                </Lengket>
+            </div>
+        </motion.div>);
 }
 const Section3 = () => {
     return (
-        <div className="px-[8vw] w-screen bg-Az-920 pb-[30vh]">
+        <div className="px-[8vw] w-screen bg-Az-950 pb-[30vh]">
             {/* Title */}
             <div className="mb-6">
                 <p className="text-Az-300 text-sm">My Projects</p>
