@@ -10,7 +10,7 @@ import Testing from "./Pages/Testing";
 import Navbar from "./Components/Navbar/Navbar";
 import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react"
-import Footer from "./Components/Footer";
+import Footer from "./Components/Navbar/Footer";
 import { useEffect } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
 import { useState } from "react";

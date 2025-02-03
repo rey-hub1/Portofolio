@@ -29,7 +29,7 @@ function Paragraft({ value }) {
                 words.map((word, i) => {
                     const start = i / words.length
                     const end = start + (1 / words.length)
-                    console.log([start, end])
+                    // console.log([start, end])
                     return <Word range={[start, end]} progress={scrollYProgress} className="mr-1 " key={i}>{word} </Word>
                 })
             }

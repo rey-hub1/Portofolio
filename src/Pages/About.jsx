@@ -197,7 +197,7 @@ function Skills() {
                 <div className="flex flex-col w-40 gap-1 items-center">
                     <MdOutlineWeb size="3em" />
                     <p className="text-center font-bold text-[#b2ddd6]">
-                        Full Stack Devoloper
+                        Front End Devoloper
                     </p>
                 </div>
                 <div className="flex flex-col w-40 gap-1 items-center">

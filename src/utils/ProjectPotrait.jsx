@@ -35,6 +35,8 @@ const useDimensions = () => {
 };
 
 const ProjectPotrait = () => {
+
+    
     const container = useRef(null);
     const { height } = useDimensions()
     const { scrollYProgress } = useScroll({
@@ -44,8 +46,9 @@ const ProjectPotrait = () => {
     const y1 = useTransform(scrollYProgress, [0, 1], [0, height * 2])
     const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3])
     const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25])
-    const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3])
-
+    const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 2.7])
+    const y5 = useTransform(scrollYProgress, [0, 1], ["0", "100%"])
+    
     useEffect(() => {
         const lenis = new Lenis()
 
@@ -58,7 +61,15 @@ const ProjectPotrait = () => {
     })
     return (
         <main className={styles.main}>
-            <div className={styles.spacer}></div>
+            <div className="min-h-[200vh]">
+                <motion.h5 
+                ref={container}
+                className="text-4xl text-center"
+                style={{y: y5}}
+                >One of Best Skill</motion.h5>
+                <h5>tes</h5>
+            </div>
+
             <div ref={container} className={styles.gallery}>
                 <Column images={[images[0], images[1], images[2]]} y={y1} />
                 <Column images={[images[3], images[4], images[5]]} y={y2} />

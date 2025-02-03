@@ -239,14 +239,28 @@ const Schedule = () => {
             >
                 More Details
             </motion.h1>
-            <ScheduleItem title="Web SMKN 2 PURWAKARTA" date="React | Next.js | TailwindCSS" location="PROJECTS" />
-            <ScheduleItem title="Web REZA" date="HTML | CSS | Javascript" location="PROJECTS" />
+            <ScheduleItem title="Web SMKN 2 PURWAKARTA" date="React | Next.js | TailwindCSS" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
+                </a>
+            </ScheduleItem>
+            <ScheduleItem title="Web REZA" date="HTML | CSS | Javascript" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
+                </a>
+            </ScheduleItem>
+            <ScheduleItem title="Web Portofolio" date="HTML | CSS | Javascript" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
+                </a>
+            </ScheduleItem>
+
 
         </section>
     );
 };
 
-const ScheduleItem = ({ title, date, location }) => {
+const ScheduleItem = ({ title, date, location, children }) => {
     return (
         <motion.div
             initial={{ y: 48, opacity: 0 }}
@@ -264,9 +278,7 @@ const ScheduleItem = ({ title, date, location }) => {
                     <p>{location}</p>
                     <BsBraces />
                 </div>
-                <a href="https://daisyui.com/components/button/" className="ml-auto">
-                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
-                </a>
+                {children}
             </div>
         </motion.div>
     );

@@ -12,6 +12,7 @@ import { useEffect, useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 // import Lenis from "lenis";
 import Lenis from '@studio-freight/lenis'
+import { Button } from "../Components/Button/Button";
 
 
 
@@ -44,12 +45,12 @@ export default function PageIndex() {
 
 const Card = ({ icon, title, description }) => {
     return (
-        <div className="bg-Az-950 text-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center w-[300px] md:w-[330px]">
+        <div className="bg-Az-950 text-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center w-[170px] md:w-[280px]">
             <div className="flex items-center justify-center rounded-full p-6 bg-[#1E2A2F] mb-4">
                 {icon}
             </div>
-            <h2 className="text-xl font-semibold mb-2">{title}</h2>
-            <p className="text-gray-300 text-sm">{description}</p>
+            <h2 className="text-base font-semibold mb-2">{title}</h2>
+            <p className="text-gray-300 text-xs">{description}</p>
         </div>
     );
 };
@@ -63,47 +64,21 @@ const ProjectCard = () => {
 
 
 
-const Button = ({ text, variant, className, cv = null }) => {
-    const baseClasses =
-        "px-6 py-2 rounded-lg shadow-md transition font-semibold";
-
-    const solidClasses = "bg-Az-700 text-Az-100 hover:bg-[#345A54]";
-    const outlineClasses =
-        "border border-Az-100 text-Az-100 bg-transparent hover:bg-[#2C4E48] hover:text-white";
-    const downloadCV = () => {
-        const link = document.createElement('a');
-        link.href = '/file/cv_contoh.pdf';  // Ganti dengan path file CV
-        link.download = 'cv_contoh.pdf'; // Nama file yang akan diunduh
-        link.click();  // Memulai download
-    }
-
-    return (
-        <button
-            className={`${baseClasses} ${variant === "outline" ? outlineClasses : solidClasses} ${className}`}
-            onClick={cv === "true" ? downloadCV : null}
-        >
-            {text}
-        </button>
-    );
-};
-
-
 const Section1 = () => {
     return (
-        <div className="flex  items-center content-center justify-center min-w-[100vw] pt-[15vh] pb-1 px-[4vw] md:px-0 ">
-            <div className="relative w-[100vw] md:w-[140vw] h-auto hidden md:block">
+        <div className="flex relative items-center content-center justify-center min-h-[75vh] min-w-[100vw] pt-[1vh] pb-1 px-[4vw] md:px-0 ">
+            <div className="absolute z-0 md:relative md:opacity-100 opacity-40 w-[75vh] left-[0.1vw] md:w-[140vw] h-auto bottom-0 md:block">
                 {/* Gambar */}
                 <img src="/images/v2/HomeTop.png" className="inset-0 w-full h-full object-cover rounded-lg" />
             </div>
             {/* <img src="/images/v2/HomeTop.png" /> */}
-            <div className="flex flex-col gap-2 mr-[8vw] mb-16 md:mb-1">
-                <h2 className="text-5xl tracking-wider">Hello!</h2>
+            <div className="flex flex-col gap-2 mr-[8vw] mb-16 md:mb-1 z-10">
+                <h2 className="text-4xl tracking-wider">Hello!</h2>
                 <h2 className="text-4xl tracking-wider ">I’m Reyno Nawfal Ghaisan</h2>
                 <p>A Software Engineering student passionate about tech, AI, and business. I love building websites, exploring AI, and creating random YouTube content. Always learning, always innovating.</p>
-                <div className="flex gap-4 w-full">
-                    <Button text="Contact Me" className="w-2/6" />
-                    <Button text="Dowloada CV" variant="outline" className="w-2/5" cv="true"
-                    />
+                <div className="flex gap-4 w-full mt-1">
+                    <Button  className="">Contact Me</Button>
+                    <Button  variant=" outline" className="" cv="true">Dowload CV</Button>
                 </div>
             </div>
         </div>);
@@ -146,7 +121,7 @@ function Section2() {
             ref={ref1}
             key="section2"
             style={{ y: bgY1 }}
-            className="relative flex flex-col lg:flex-row min-h-screen bg-Az-920 items-center justify-between gap-[5vw] px-[8vw] pt-10 -mb-40"
+            className="relative flex flex-col lg:flex-row min-h-[100vh] bg-Az-920 items-center justify-center gap-[10vw] lg:justify-between lg:gap-[3vw] px-[8vw] pt-10 -mb-40"
         >
             {/* Button di atas gambar */}
             <button className="hidden md:block absolute z-10 text-2xl -top-5 -left-2 bg-[#2C4E48] text-white px-7 py-3 rounded-lg shadow-md font-semibold">
@@ -155,26 +130,28 @@ function Section2() {
             {
                 /* KIRI / atas */
             }
-            <div className="flex flex-row lg:flex-col gap-6">
+            <div className="flex flex-row lg:flex-col ">
+                <div className="flex flex-row lg:flex-col gap-4">
                 <motion.div
                     variants={fadeInLeftAnim}
                     initial="initial"
                     whileInView="animate"
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ amount: 0.7, once: false }}
+                    viewport={{ amount: 0.7, once: true }}
                 >
-                    <Card icon={<FiPenTool size={40} />} title="Design" description="I craft intuitive and visually appealing designs that focus on user experience." />
+                    <Card icon={<FiPenTool className="w-7 h-7" />} title="Design" description="I craft intuitive and visually appealing designs that focus on user experience." />
                 </motion.div>
                 <motion.div
                     variants={fadeInLeftAnim}
                     initial="initial"
                     whileInView="animate"
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ amount: 0.3 }}
+                    viewport={{ amount: 0.7, once: true }}
                 >
 
-                    <Card icon={<IoCodeSlash size={40} />} title="Website Developer" description="I build responsive and user-friendly websites, combining clean code with great design to ." />
+                        <Card icon={<IoCodeSlash className="w-7 h-7" />} title="Website Developer" description="I build responsive and user-friendly websites, with clean code with great design." />
                 </motion.div>
+                </div>
 
             </div>
 
@@ -209,7 +186,7 @@ function Section2() {
                 Let&apos;s build something great together!
             </p> */}
                 <Lengket className="mt-[1vw] w-fit">
-                    <Button text="Learn More About Me" variant="" className="" />
+                    <Button  variant="" className="" >Learn More About Me</Button>
                 </Lengket>
             </div>
         </motion.div>);
