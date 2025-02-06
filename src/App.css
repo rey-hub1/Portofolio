@@ -1,10 +1,9 @@
 html {
-    @apply text-[14px] md:text-[15px] lg:text-[17px];
+    @apply text-[13px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px];
     /* @apply text-[16px] ; */
   }
 
 #root {
-  /* @apply mx-auto max-w-7xl; */
   overflow-x: hidden;
 }
 

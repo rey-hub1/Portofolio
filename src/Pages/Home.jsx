@@ -65,20 +65,36 @@ const ProjectCard = () => {
 
 
 const Section1 = () => {
+    const ref = useRef(null)
+    const { scrollYProgress } = useScroll()
+    const rotate = useTransform(scrollYProgress, [0, 1], [0, -60], )
     return (
-        <div className="flex relative items-center content-center justify-center min-h-[75vh] min-w-[100vw] pt-[1vh] pb-1 px-[4vw] md:px-0 ">
-            <div className="absolute z-0 md:relative md:opacity-100 opacity-40 w-[75vh] left-[0.1vw] md:w-[140vw] h-auto bottom-0 md:block">
+        <div ref={ref} className="flex relative items-center  content-center justify-center h-[65vh] lg:h-[70vh] min-w-[100vw] pt-[1vh] pb-1 px-[4vw] md:px-0 ">
+            <div  className="absolute w-full z-0 min-h-[75vh] md:static md:opacity-100 opacity-30 md:w-[100vw] h-full  bottom-0 md:block">
                 {/* Gambar */}
-                <img src="/images/v2/HomeTop.png" className="inset-0 w-full h-full object-cover rounded-lg" />
+                {/* Bulet */}
+                <motion.img  src="/images/v2/HomeTop12.png"
+                    style={{ rotate }}
+                    className="absolute 
+                     md:-bottom-[3%] 
+                    bottom-[10%] lg:-bottom-[4%] 
+                    -left-[30%] md:-left-[7%] lg:-left-[6%]    
+                    w-[60%] md:w-[52%] lg:w-[48%] xl:w-[43%]   " />
+                {/* MUKA */}
+                <img src="/images/v2/HomeTop2.png"
+                    className="absolute bottom-0 
+                    left-[30%] md:left-0  
+                w-[0%] md:w-[35%] lg:w-[30%] xl:w-[28%] " />
+                {/* <img src="/images/v2/HomeTop2.png" className="w-full h-full object-cover rounded-lg" /> */}
             </div>
             {/* <img src="/images/v2/HomeTop.png" /> */}
-            <div className="flex flex-col gap-2 mr-[8vw] mb-16 md:mb-1 z-10">
+            <div className="flex flex-col gap-2 mr-[8vw] mb-16 md:mb-1 z-10 ">
                 <h2 className="text-4xl tracking-wider">Hello!</h2>
                 <h2 className="text-4xl tracking-wider ">I’m Reyno Nawfal Ghaisan</h2>
                 <p>A Software Engineering student passionate about tech, AI, and business. I love building websites, exploring AI, and creating random YouTube content. Always learning, always innovating.</p>
                 <div className="flex gap-4 w-full mt-1">
-                    <Button  className="">Contact Me</Button>
-                    <Button  variant=" outline" className="" cv="true">Dowload CV</Button>
+                    <Button className="">Contact Me</Button>
+                    <Button variant=" outline" className="" cv="true">Dowload CV</Button>
                 </div>
             </div>
         </div>);
@@ -132,25 +148,25 @@ function Section2() {
             }
             <div className="flex flex-row lg:flex-col ">
                 <div className="flex flex-row lg:flex-col gap-4">
-                <motion.div
-                    variants={fadeInLeftAnim}
-                    initial="initial"
-                    whileInView="animate"
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ amount: 0.7, once: true }}
-                >
-                    <Card icon={<FiPenTool className="w-7 h-7" />} title="Design" description="I craft intuitive and visually appealing designs that focus on user experience." />
-                </motion.div>
-                <motion.div
-                    variants={fadeInLeftAnim}
-                    initial="initial"
-                    whileInView="animate"
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ amount: 0.7, once: true }}
-                >
+                    <motion.div
+                        variants={fadeInLeftAnim}
+                        initial="initial"
+                        whileInView="animate"
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ amount: 0.7, once: true }}
+                    >
+                        <Card icon={<FiPenTool className="w-7 h-7" />} title="Design" description="I craft intuitive and visually appealing designs that focus on user experience." />
+                    </motion.div>
+                    <motion.div
+                        variants={fadeInLeftAnim}
+                        initial="initial"
+                        whileInView="animate"
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        viewport={{ amount: 0.7, once: true }}
+                    >
 
                         <Card icon={<IoCodeSlash className="w-7 h-7" />} title="Website Developer" description="I build responsive and user-friendly websites, with clean code with great design." />
-                </motion.div>
+                    </motion.div>
                 </div>
 
             </div>
@@ -186,7 +202,7 @@ function Section2() {
                 Let&apos;s build something great together!
             </p> */}
                 <Lengket className="mt-[1vw] w-fit">
-                    <Button  variant="" className="" >Learn More About Me</Button>
+                    <Button variant="" className="" >Learn More About Me</Button>
                 </Lengket>
             </div>
         </motion.div>);

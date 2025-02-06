@@ -23,7 +23,7 @@ export default function App() {
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
-    }, 2000);
+    }, 0);
   }, [])
   useEffect(() => {
     window.scrollTo(0, 0); // Reset scroll ke atas
@@ -60,7 +60,8 @@ export default function App() {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatePresence>
-            <Footer />
+            {location.pathname !== "/contact" && <Footer></Footer> }
+            {/* <Footer /> */}
           </motion.div>
       }
     </div>

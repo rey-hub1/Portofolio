@@ -8,7 +8,7 @@ export default {
     screens: {
       sm: "640px",
       md: "768px",
-      lg: "900px", // Ganti `lg` ke ukuran baru
+      lg: "980px", // Ganti `lg` ke ukuran baru
       xl: "1280px",
       "2xl": "1536px",
     },
@@ -35,6 +35,13 @@ export default {
       // fontSize: {
       //   "5xl": ["1rem", { lineHeight: "1" }], // Kustom ukuran 2xl
       // },
+      spacing: {
+        "px-sm": "4vw", // Mobile kecil (4% dari lebar layar)
+        "px-md": "6vw", // Tablet (6% dari lebar layar)
+        "px-lg": "8vw", // Laptop kecil (8% dari lebar layar)
+        "px-xl": "10vw", // Desktop standar (10% dari lebar layar)
+        "px-2xl": "12vw", // Layar besar (12% dari lebar layar)
+      },
     },
   },
   plugins: [daisyui],

@@ -24,7 +24,7 @@ export default function Navbar() {
     const location = useLocation();
     return (
         <Disclosure as="nav" className="text-sm text-[#f4f9f8] font-medium">
-            <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-[8vw]">
+            <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-[4rem]">
                 <div className="relative flex h-16 items-center justify-between">
                     {/* Mobile Menu Button */}
                     <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
