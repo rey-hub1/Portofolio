@@ -11,7 +11,7 @@ export default function Contact() {
                     className="h-52 w-full object-cover opacity-15 rounded-b-7xl"
                     alt="Background"
                 />
-                <div className="-mt-32 px-[4vw] lg:px-0">
+                <div className="-mt-40 px-[4vw] lg:px-0">
                     {/* Contact Form Container */}
                     <div className="grid sm:grid-cols-2 opacity-90 items-start text-[#d9eeea] gap-14 p-8 mx-auto max-w-4xl bg-[#233e3d] shadow-2xl rounded-md">
                         {/* Contact Information */}

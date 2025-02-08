@@ -24,12 +24,13 @@ const animation1 = {
 };
 function Home() {
     return (
-        <div className="bg-Az-950 ">
+        <div className="bg-Az-920 ">
             {/* Section 1 */}
             <Who />
             <Skills />
             <Experience animation={animation1} />
-            <KataKata />
+            <div className="min-h-[20vh]"></div>
+            {/* <KataKata /> */}
         </div>
     );
 }
@@ -261,8 +262,6 @@ function Skills() {
                         </p>
                         <p className="hover:text-[#84c4bb] cursor-default ">Postman</p>
                         <p className="hover:text-[#84c4bb] cursor-default "></p>
-                        <p className="hover:text-[#84c4bb] cursor-default ">Php</p>
-                        <p className="hover:text-[#ff4a4a] cursor-default ">NULL</p>
                     </div>
                 </div>
             </div>
@@ -370,8 +369,8 @@ function Experience() {
                     </div>
                     <hr className="bg-[#84c4bb]" />
                 </li>
-
-                <li>
+                <div className="min-h-16"></div>
+                {/* <li>
                     <hr className="bg-[#84c4bb]" />
                     <div className="timeline-middle">
                         <svg
@@ -394,7 +393,7 @@ function Experience() {
                         </div>
                         Bekerja di goggle sebagai maneger website authizor
                     </div>
-                </li>
+                </li> */}
             </motion.ul>
         </div>
     );

@@ -61,13 +61,13 @@ const ProjectPotrait = () => {
     })
     return (
         <main className={styles.main}>
-            <div className="min-h-[200vh]">
+            <div className="min-h-[0vh]">
                 <motion.h5 
                 ref={container}
                 className="text-4xl text-center"
                 style={{y: y5}}
-                >One of Best Skill</motion.h5>
-                <h5>tes</h5>
+                ></motion.h5>
+                <h5></h5>
             </div>
 
             <div ref={container} className={styles.gallery}>
@@ -76,7 +76,7 @@ const ProjectPotrait = () => {
                 <Column images={[images[5], images[1], images[2]]} y={y3} />
                 <Column images={[images[3], images[4], images[5]]} y={y4} />
             </div>
-            <div className={styles.spacer}></div>
+            {/* <div className={styles.spacer}></div> */}
         </main>
     );
 }

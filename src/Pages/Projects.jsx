@@ -30,32 +30,21 @@ const SmoothScrollHero = () => {
                 <ReactLenis
                     root
                     options={{
-                        // Learn more -> https://github.com/darkroomengineering/lenis?tab=readme-ov-file#instance-settings
                         lerp: 0.05,
                         //   infinite: true,
                         //   syncTouch: true,
                     }}
                 >
                     {/* <Nav /> */}
-                    <Hero />
-                    <ProjectPotrait />
+                    <div className="hidden lg:block  ">
+                        <Hero />
+                        <ProjectPotrait />
+                    </div>
                     <Schedule />
                 </ReactLenis>
             </div>
-            <motion.div
-                className="bawah"
-                initial={{ y: 48, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ ease: "easeInOut", duration: 0.75 }}
-            >
-                <h3 className="text-4xl text-center">WANT TO COLABATE</h3>
-                <p
-                    className="text-center text-md mt-2 text-[#b2ddd6]"
-                >
-                    Tertarik untuk berkolaborasi atau mengeksplorasi peluang bisnis? <br />Ayo, mari kita ciptakan sesuatu yang luar biasa bersama!
-                </p>
-            </motion.div>
-            <HeroSplit
+
+            {/* <HeroSplit
                 className=""
                 title="About Me"
                 description="I&apos;m free just contact me if you need"
@@ -89,7 +78,7 @@ const SmoothScrollHero = () => {
                         <FaWhatsapp className="h-8 w-8" />
                     </a>
                 </div>
-            </HeroSplit>
+            </HeroSplit> */}
         </>
 
     );
@@ -118,8 +107,8 @@ const SECTION_HEIGHT = 1500;
 const Hero = () => {
     return (
         <div
-            style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-            className="relative w-full"
+            style={{ height: `calc(${SECTION_HEIGHT}px + 90vh)` }}
+            className="relative w-full -mb-24"
         >
             <CenterImage />
 

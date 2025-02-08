@@ -69,7 +69,7 @@ const Section1 = () => {
     const { scrollYProgress } = useScroll()
     const rotate = useTransform(scrollYProgress, [0, 1], [0, -60], )
     return (
-        <div ref={ref} className="flex relative items-center  content-center justify-center h-[65vh] lg:h-[70vh] min-w-[100vw] pt-[1vh] pb-1 px-[4vw] md:px-0 ">
+        <div ref={ref} className="flex relative items-center  content-center justify-center h-[61vh] md:h-[65vh] lg:h-[73vh] min-w-[100vw] pt-[1vh] pb-1 px-[4vw] md:px-0 ">
             <div  className="absolute w-full z-0 min-h-[75vh] md:static md:opacity-100 opacity-30 md:w-[100vw] h-full  bottom-0 md:block">
                 {/* Gambar */}
                 {/* Bulet */}
@@ -137,7 +137,7 @@ function Section2() {
             ref={ref1}
             key="section2"
             style={{ y: bgY1 }}
-            className="relative flex flex-col lg:flex-row min-h-[100vh] bg-Az-920 items-center justify-center gap-[10vw] lg:justify-between lg:gap-[3vw] px-[8vw] pt-10 -mb-40"
+            className="relative flex flex-col lg:flex-row min-h-[0vh] lg:min-h-[100vh] bg-Az-920 items-center justify-center gap-[10vw] lg:justify-between lg:gap-[3vw] px-[8vw] pt-10 -mb-40"
         >
             {/* Button di atas gambar */}
             <button className="hidden md:block absolute z-10 text-2xl -top-5 -left-2 bg-[#2C4E48] text-white px-7 py-3 rounded-lg shadow-md font-semibold">
