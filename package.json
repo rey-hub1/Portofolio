@@ -1,11 +1,15 @@
 {
+  "homepage": "https://rey-hub1.github.io/Portofolio/",
   "name": "portofolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
+  
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,6 +18,7 @@
     "@heroicons/react": "^2.2.0",
     "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^11.16.1",
+    "gh-pages": "^6.3.0",
     "lenis": "^1.1.18",
     "motion": "^11.11.17",
     "react": "^18.3.1",
