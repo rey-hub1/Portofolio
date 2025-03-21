@@ -6,6 +6,7 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react"
 
 const navigation = [
     { name: "Home", 
@@ -24,7 +25,7 @@ export default function Navbar() {
     const location = useLocation();
     return (
         <Disclosure as="nav" className="text-sm text-[#f4f9f8] font-medium">
-            <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-[4rem]">
+            <div className="mx-auto max-w-7xl px-2 md:px-[8vw] lg:px-[8vw]">
                 <div className="relative flex h-16 items-center justify-between">
                     {/* Mobile Menu Button */}
                     <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -90,16 +91,17 @@ export default function Navbar() {
             <DisclosurePanel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {navigation.map((item) => (
-                        <DisclosureButton
+                        <motion.DisclosureButton
                             key={item.name}
                             as={Link}
                             to={item.path}
+                            on
                             className={classNames(
                                 "text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base"
                             )}
                         >
                             {item.name}
-                        </DisclosureButton>
+                        </motion.DisclosureButton>
                     ))}
                 </div>
             </DisclosurePanel>

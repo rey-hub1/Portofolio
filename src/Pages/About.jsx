@@ -68,8 +68,8 @@ function Who() {
     return (
         <motion.div
             ref={ref1}
-            style={{ y: bgY1, opacity: bgY2 }}
-            className="min-h-[160vh] xl:min-h-[100vh] px-[8vw] pt-16 relative z-0 bg-Az-950 "
+            style={{ y: bgY1 }}
+            className="min-h-[160vh] xl:min-h-[100vh] px-[8vw] pt-4 relative z-0 bg-Az-950 "
            
         >
             <motion.p

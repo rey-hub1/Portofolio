@@ -94,7 +94,7 @@ const Section1 = () => {
                 <p>A Software Engineering student passionate about tech, AI, and business. I love building websites, exploring AI, and creating random YouTube content. Always learning, always innovating.</p>
                 <div className="flex gap-4 w-full mt-1">
                     <Button className="">Contact Me</Button>
-                    <Button variant=" outline" className="" cv="true">Dowload CV</Button>
+                    <Button variant="outline" className="" cv="true">Dowload CV</Button>
                 </div>
             </div>
         </div>);
@@ -180,6 +180,7 @@ function Section2() {
                     variants={fadeInAnim}
                     initial="initial"
                     whileInView="animate"
+                    viewport={{ amount: 0.7, once: true }}
                     transition={{ duration: 1.2, delay: 0.4 }}
                 >-My Skills</motion.p>
                 {/* <h2 className="text-4xl font-bold mb-1">

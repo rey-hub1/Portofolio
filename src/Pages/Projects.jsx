@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import HeroSplit from "../Components/hero/HeroSplit";
 import { ReactLenis } from "lenis/dist/lenis-react";
 import {
     motion,
@@ -10,9 +9,9 @@ import {
 // import { SiSpacex } from "react-icons/si";
 import { useEffect, useRef } from "react";
 import { BsBraces } from "react-icons/bs";
-import { FaGithub, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, } from "react-icons/fa";
 import ProjectPotrait from "../utils/ProjectPotrait";
-
+import { FaSheetPlastic } from "react-icons/fa6";
 
 const SmoothScrollHero = () => {
     useEffect(() => {
@@ -243,6 +242,11 @@ const Schedule = () => {
                     <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
                 </a>
             </ScheduleItem>
+            <ScheduleItem title="Poster Design" date="FIGMA | PHOTOSHOP" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaSheetPlastic className="ml-auto w-5 h-5" />
+                </a>
+            </ScheduleItem>
 
 
         </section>
@@ -258,11 +262,11 @@ const ScheduleItem = ({ title, date, location, children }) => {
             className={`mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9 cursor-[url('/images/aboutme.jpg'), auto]`}
         >
             <div>
-                <p className="mb-1.5 text-xl text-zinc-50">{title}</p>
+                <p className="mb-1 text-xl text-zinc-50">{title}</p>
                 <p className="text-sm uppercase text-zinc-500">{date}</p>
             </div>
 
-            <div className="flex flex-col items-center justify-center ">
+            <div className="flex flex-col items-center gap-1 justify-center ">
                 <div className="flex items-center gap-1.5 text-end text-sm uppercase text-zinc-500">
                     <p>{location}</p>
                     <BsBraces />
