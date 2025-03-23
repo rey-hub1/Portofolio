@@ -5,7 +5,5 @@
 body {
   background-color: #0b1919;
   min-height: 100vh;
-}
-html {
-  scroll-behavior: smooth;
+  min-width: 100vw;
 }

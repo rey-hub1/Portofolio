@@ -1,0 +1,39 @@
+.gallery {
+  height: 195vh;
+  background: #233e3d;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  padding: 1vw;
+  box-sizing: border-box;
+  overflow: hidden;
+  .column {
+    width: 25;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+    min-width: 250px;
+    position: relative;
+    .imageContainer{
+      width: 100%;
+      height: auto;
+      position: relative;
+      border-radius: 1vw;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+      }
+    }
+    &:nth-of-type(1){top: -55%}
+    &:nth-of-type(2){top: -75%}
+    &:nth-of-type(3){top: -45%}
+    &:nth-of-type(4){top: -85%}
+  }
+  
+}
+.spacer{
+    height: 100vh;
+    width: 100%;
+    background-color: transparent; /* Bisa diberi warna untuk debugging */
+  }

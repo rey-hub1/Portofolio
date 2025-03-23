@@ -1,19 +1,29 @@
-import { useEffect } from "react";
+
+
+import TextAnimateHuruf from "../utils/TextAnimateHuruf";
+import TextAnimateKata from "../utils/TextAnimateKata";
+import ProjectPotrait from "../utils/ProjectPotrait";
+
 
 function NotFound() {
-    useEffect(() => {
-        const audio = new Audio('/audio/luNyariApa.mp3');
-        audio.play().catch((err) => {
-            console.log('Autoplay blocked:', err);
-        });
-    }, []);
-
     return (
-        <>
-            <h1 className="text-3xl cursor-[url('/images/porshe.jpeg'), auto]">
-                PAGE NOT FOUND
-            </h1>
-        </>
-    );
+        <div>
+            <svg viewBox="0 0 243 243">
+                <filter >
+
+                </filter>
+            </svg>
+            <div className="h-screen"></div>
+            <TextAnimateHuruf />
+            <div className="h-screen"></div>
+            <p>test</p>
+            <TextAnimateKata >WDAAWD</TextAnimateKata>
+            <div className="h-screen"></div>
+            <ProjectPotrait />
+        </div>
+    )
+
+
 }
-export default NotFound
+
+export default NotFound;

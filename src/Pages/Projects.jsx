@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import HeroSplit from "../Components/hero/HeroSplit";
 import { ReactLenis } from "lenis/dist/lenis-react";
 import {
     motion,
@@ -10,7 +9,9 @@ import {
 // import { SiSpacex } from "react-icons/si";
 import { useEffect, useRef } from "react";
 import { BsBraces } from "react-icons/bs";
-import { FaGithub, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, } from "react-icons/fa";
+import ProjectPotrait from "../utils/ProjectPotrait";
+import { FaSheetPlastic } from "react-icons/fa6";
 
 const SmoothScrollHero = () => {
     useEffect(() => {
@@ -28,31 +29,21 @@ const SmoothScrollHero = () => {
                 <ReactLenis
                     root
                     options={{
-                        // Learn more -> https://github.com/darkroomengineering/lenis?tab=readme-ov-file#instance-settings
                         lerp: 0.05,
                         //   infinite: true,
                         //   syncTouch: true,
                     }}
                 >
                     {/* <Nav /> */}
-                    <Hero />
+                    <div className="hidden lg:block  ">
+                        <Hero />
+                        <ProjectPotrait />
+                    </div>
                     <Schedule />
                 </ReactLenis>
             </div>
-            <motion.div
-                className="bawah"
-                initial={{ y: 48, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ ease: "easeInOut", duration: 0.75 }}
-            >
-                <h3 className="text-4xl text-center">WANT TO COLABATE</h3>
-                <p
-                    className="text-center text-md mt-2 text-[#b2ddd6]"
-                >
-                    Tertarik untuk berkolaborasi atau mengeksplorasi peluang bisnis? <br />Ayo, mari kita ciptakan sesuatu yang luar biasa bersama!
-                </p>
-            </motion.div>
-            <HeroSplit
+
+            {/* <HeroSplit
                 className=""
                 title="About Me"
                 description="I&apos;m free just contact me if you need"
@@ -86,7 +77,7 @@ const SmoothScrollHero = () => {
                         <FaWhatsapp className="h-8 w-8" />
                     </a>
                 </div>
-            </HeroSplit>
+            </HeroSplit> */}
         </>
 
     );
@@ -115,8 +106,8 @@ const SECTION_HEIGHT = 1500;
 const Hero = () => {
     return (
         <div
-            style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-            className="relative w-full"
+            style={{ height: `calc(${SECTION_HEIGHT}px + 90vh)` }}
+            className="relative w-full -mb-24"
         >
             <CenterImage />
 
@@ -236,14 +227,33 @@ const Schedule = () => {
             >
                 More Details
             </motion.h1>
-            <ScheduleItem title="Web SMKN 2 PURWAKARTA" date="React | Next.js | TailwindCSS" location="PROJECTS" />
-            <ScheduleItem title="Web REZA" date="HTML | CSS | Javascript" location="PROJECTS" />
+            <ScheduleItem title="Web SMKN 2 PURWAKARTA" date="React | Next.js | TailwindCSS" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
+                </a>
+            </ScheduleItem>
+            <ScheduleItem title="Web REZA" date="HTML | CSS | Javascript" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
+                </a>
+            </ScheduleItem>
+            <ScheduleItem title="Web Portofolio" date="HTML | CSS | Javascript" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
+                </a>
+            </ScheduleItem>
+            <ScheduleItem title="Poster Design" date="FIGMA | PHOTOSHOP" location="PROJECTS" >
+                <a href="https://daisyui.com/components/button/" className="ml-auto">
+                    <FaSheetPlastic className="ml-auto w-5 h-5" />
+                </a>
+            </ScheduleItem>
+
 
         </section>
     );
 };
 
-const ScheduleItem = ({ title, date, location }) => {
+const ScheduleItem = ({ title, date, location, children }) => {
     return (
         <motion.div
             initial={{ y: 48, opacity: 0 }}
@@ -252,18 +262,16 @@ const ScheduleItem = ({ title, date, location }) => {
             className={`mb-9 flex items-center justify-between border-b border-zinc-800 px-3 pb-9 cursor-[url('/images/aboutme.jpg'), auto]`}
         >
             <div>
-                <p className="mb-1.5 text-xl text-zinc-50">{title}</p>
+                <p className="mb-1 text-xl text-zinc-50">{title}</p>
                 <p className="text-sm uppercase text-zinc-500">{date}</p>
             </div>
 
-            <div className="flex flex-col items-center justify-center ">
+            <div className="flex flex-col items-center gap-1 justify-center ">
                 <div className="flex items-center gap-1.5 text-end text-sm uppercase text-zinc-500">
                     <p>{location}</p>
                     <BsBraces />
                 </div>
-                <a href="https://daisyui.com/components/button/" className="ml-auto">
-                    <FaGithub className="ml-auto w-5 h-5" href="https://daisyui.com/components/button/" />
-                </a>
+                {children}
             </div>
         </motion.div>
     );

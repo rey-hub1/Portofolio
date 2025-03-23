@@ -25,13 +25,13 @@ export default function Hero({ className = "" }) {
                         className="mb-5 font-black text-center text-6xl sm:text-8xl "
                     >
                         REYNO</h1>
-                    <p className="mb-5 mx-auto items-center justify-center sm:text-base text-justify md:text-center md:w-full w-11/12  text-sm font-['Playfair']">
+                    <p className="mb-5 mx-auto items-center justify-center sm:text-base text-justify md:text-center md:w-full w-11/12  text-sm font-['Poppins']">
                         An enthusiastic learner who is passionate about technology and innovation. Always trying to turn ideas into impactful and useful solutions.
                     </p>
                     <div className="flex justify-evenly md:justify-center gap-2">
 
-                        <button 
-                        className="relative btn bg-[#264948] text-white px-6 py-2 rounded-md"
+                        <button
+                            className="relative btn bg-[#264948] text-white px-6 py-2 rounded-md"
                             onClick={() => {
                                 const link = document.createElement('a');
                                 link.href = '/file/cv_contoh.pdf';  // Ganti dengan path file CV
