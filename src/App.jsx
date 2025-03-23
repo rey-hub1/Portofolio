@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import { Routes, Route, useLocation } from "react-router-dom";
 import NotFound from "./Pages/NotFound";
-import './app.css';
+import './App.css';
 import Projects from "./Pages/Projects";
 import Contact from "./Pages/Contact";
 import Testing from "./Pages/Testing";
