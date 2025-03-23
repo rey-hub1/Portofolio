@@ -18,10 +18,10 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install dependencies
-        uses: bahmutov/pnpm-install@v1
+        uses: bahmutov/npm-install@v1
 
       - name: Build project
-        run: pnpm run build
+        run: npm run build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
